@@ -6,31 +6,33 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 100px;
+			height:100px;
+			background-color: rgb(46, 173, 42);
 			font-size: 300%;
+			font-family: 'Franklin Gothic Medium';
 			text-align: center;
-			display: block;
+			display: square;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 100px;  /* <--- Change me! */
 		}
-		.board{
-			height: 100vh;
+		.board{ 
+			height:200vh;
+			background-color:greenyellow;
 		}
 	</style>
-	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+	<!--   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
-</head>
-<body class="board">
-	<!-- HTML for the box -->
+   </head>
+   <body class="board">
+	  <!-- HTML for the box -->
 	<div class="box">?</div>
-
-	<script>
-		(function(){
-			'use strict'
-			/* global jQuery */
+   
+     <script>
+	  (function (){
+	 'use strict'
+	/* global jQuery */
 
 			//////////////////////////////////////////////////////////////////
 			/////////////////// SETUP DO NOT DELETE //////////////////////////
@@ -52,7 +54,7 @@
 			}
 
 			// changes the text displayed on the Box
-			function changeBoxText(newText) {
+			function changeBoxTo(newText) {
 				box.text(newText);
 			}
 
@@ -61,30 +63,47 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
-
-			
+			var positionX = 0;
+			var points = 0;
+			var speed = 10;
+            var boardWidth = board.width()
+		
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
-			function update() {
-				
+			
+		function update() {
+			// Your code will increase positionX by 10 here
+				positionX = positionX + speed; 
+				moveBoxTo(positionX);
+                 
+				if (positionX > boardWidth);
+					{speed = -speed;}
 
-			};
+			if (positionX < 0);
+			   {speed = -speed;}
 
+	};
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
+				positionX = 0; 
+				points = points +1;
+				changeBoxText(points);
+				if ((speed)=> 0) {
+					speed = speed +3;
+				    }
 
-
-			};
-		})();
-	</script>
+                 if ((speed) <= 0) {
+				  speed = speed -3;
+				 }			
+		};        	
+    })();
+   </script>
 </body>
 </html>
