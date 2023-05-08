@@ -15,10 +15,10 @@
 			display: square;
 			position: absolute;
 			top: 100px;
-			left: 100px;  /* <--- Change me! */
+			left: 200px;  /* <--- Change me! */
 		}
 		.board{ 
-			height:200vh;
+			height: 100vh;
 			background-color:greenyellow;
 		}
 	</style>
@@ -92,18 +92,18 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				positionX = 0; 
-				points = points +1;
-				changeBoxText(points);
-				if ((speed) => 0) {
+					positionX = 0; 
+					points = points +1;
+					changeBoxText(points);
+					if ((speed) => 0) {
 						speed = speed +3;
 
-				}
+					}
 
-                 if (speed <= 0) {
+                 	if (speed <= 0) {
 				  		speed = speed -3;
 
-				}			
+					}			
 		};        	
     })();
    </script>
