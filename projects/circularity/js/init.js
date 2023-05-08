@@ -27,7 +27,7 @@ var init = function (window) {
 
         function drawCircle() {
             circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 79);
+            physikz.addRandomVelocity(circle, canvas, 60);
             view.addChild(circle);
             circles.push(circle)
 
@@ -83,7 +83,7 @@ var init = function (window) {
             }
             // 
             if (circle.x < 0){
-                 circle.x= canvas.width;
+                 circle.x = canvas.width;
             }
             if (circle.y < 0){
                circle.y = canvas.height;
@@ -113,7 +113,10 @@ var init = function (window) {
 
         app.addUpdateable(window.opspark.game);
     }
+    
+
 };
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if ((typeof process !== 'undefined') &&
