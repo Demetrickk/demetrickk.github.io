@@ -8,9 +8,9 @@
 		.box {
 			width: 100px;
 			height:100px;
-			background-color: rgb(46, 173, 42);
+			background-image: url(https://i.gifer.com/fxVD.gif);
 			font-size: 300%;
-			font-family: 'Franklin Gothic Medium';
+			color: azure;
 			text-align: center;
 			display: square;
 			position: absolute;
@@ -19,7 +19,13 @@
 		}
 		.board{ 
 			height: 100vh;
-			background-color:greenyellow;
+			background-image: url(https://i.gifer.com/fxVD.gif);
+			background-repeat: no-repeat;
+			-webkit-background-size: cover;
+             -moz-background-size: contain;
+             -o-background-size: contain;
+             background-size: cover;
+			
 		}
 	</style>
 	<!--   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -53,11 +59,10 @@
 				box.css("left", newPositionX);
 			}
 
-			// changes the text displayed on the Box
-			function changeBoxTo(newText) {
-				box.text(newText);
-			}
-
+			// changes the text displaye d on the Box
+			function changeBoxTo(points) {
+			box.text(points);
+		    }
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
 			//////////////////////////////////////////////////////////////////
@@ -66,8 +71,8 @@
 			var positionX = 0;
 			var points = 0;
 			var speed = 10;
-            
-		
+			var boardWidth = 1289;
+		    var randNum = Math.random(20) * 100;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -75,14 +80,13 @@
 			*/
 			
 		function update() {
-			// Your code will increase positionX by 10 here
-				positionX = positionX + speed; 
+			positionX = positionX + speed; 
 				moveBoxTo(positionX);
-                 
-				if (positionX > boardWidth);
-						{speed = -speed;}
 
-				if (positionX < 0);
+				if (positionX > boardWidth)
+						{speed = -speed;}
+				
+						if (positionX < 0)
 			   			{speed = -speed;}
 
 	};
@@ -92,16 +96,17 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-					positionX = 0; 
-					points = points +1;
-					changeBoxText(points);
-					if ((speed)=> 0) {
+				positionX = 0; 
+				points = points + 1;
+				changeBoxText(points);	
+				if ((speed) => 0) {
 						speed = speed +3;
-					}
-                 	if (speed<= 0) {
-				  		speed = speed -3;
-
-					}			
+				}
+                if (speed <= 0) {
+				  	speed = speed -3;
+			} 
+		        
+        
 		};        	
     })();
    </script>
